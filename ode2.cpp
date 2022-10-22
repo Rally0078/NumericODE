@@ -48,11 +48,11 @@ int main(void)
     double init_x, init_p;
     std::cout << "Enter number of iterations: ";
     std::cin >> N;
-    std::cout << "Enter start, stop time(seconds): ";
+    std::cout << "Enter start, stop time(2pi * seconds): ";
     std::cin >> start >> end;
     std::cout << "Enter init conditions(x,p): ";
     std::cin >> init_x >> init_p;
-    std::tuple<vector<double>, vector<double>> result = RK4(0, 2 * std::numbers::pi, N, init_x, init_p );
+    std::tuple<vector<double>, vector<double>> result = RK4(start, 2 * std::numbers::pi * end , N, init_x, init_p );
     std::cout << "Results found! Writing to CSV";
     std::ofstream outfile;
     outfile.open("results.csv");
